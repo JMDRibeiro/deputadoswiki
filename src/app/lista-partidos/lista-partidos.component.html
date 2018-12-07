@@ -1,0 +1,54 @@
+<div *ngIf="carregando" class="progress">
+    <div class="indeterminate"></div>
+  </div>
+
+  <h6 *ngIf="!partido && carregando">Não há partidos cadastrados</h6>
+
+  <div *ngIf="!carregando">
+    <h6 align="center">Partidos cadastrados</h6>
+
+    <table> 
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Número</th>
+          <th>Sigla</th>
+
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let partido of partidos">
+         
+            <td>
+              <span *ngIf="!partido.editando">{{partido.nome}}</span>
+              <input *ngIf="partido.editando" type="text" [(ngModel)]="partido.nome" name="nome-{{partido.uid}}">
+            </td>
+            <td>
+            <span *ngIf="!partido.editando">{{partido.numero}}</span>
+                <input *ngIf="partido.editando" type="number" [(ngModel)]="partido.numero" name="numero-{{partido.uid}}">
+           </td>
+           <td>
+            <span *ngIf="!partido.editando">{{partido.sigla}}</span>
+                <input *ngIf="partido.editando" type="text" [(ngModel)]="partido.sigla" name="sigla-{{partido.uid}}">
+           </td>
+            <td *ngIf="!partido.editando" class="remove-parent">
+            <a class="edit-parent" (click)="editar(partido)" href="javascript:void(0);">
+              <i class="material-icons">edit</i>
+            </a>
+            <a (click)="remover(partido.uid)" href="javascript:void(0);">
+              <i class="material-icons">delete</i>
+            </a>
+          </td>
+          <td *ngIf="partido.editando" class="remove-parent">
+              <a class="confirm-parent" (click)="confirmEdit(partido)" href="javascript:void(0);">
+                <i class="material-icons">check</i>
+              </a>
+              <a (click)="cancelEdit(partido)" href="javascript:void(0);">
+                <i class="material-icons">close</i>
+              </a>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

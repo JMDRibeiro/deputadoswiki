@@ -1,0 +1,102 @@
+h4 {
+    color: #C42C27;
+}
+
+.content {
+    width: 50%;
+    background: white;
+    margin-left: 25%;
+    padding: 20px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 #1E1916;
+    transition: 0.3s;
+}
+
+input {
+    width: -webkit-fill-available;
+    padding: 8px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+button {
+    background: #1E1916;
+    border: 1px solid #C42C27;
+    padding: 15px;
+    color: #C42C27;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+button:hover {
+    background: #C42C27;
+    color: #1E1916;
+    cursor: pointer;
+}
+
+.button-container {
+    width: 100%;
+    text-align: right;
+}
+
+table {
+    width: 100%;
+}
+
+td, th {
+    padding: 15px;
+}
+
+tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+th {
+    background: #C42C27;
+    color: #1E1916;
+    border: 2px solid;
+}
+
+button:disabled {
+    background: #bbb;
+    color: #555;
+    border: none;
+    cursor: not-allowed;
+}
+
+a {
+    background: #F7392E;
+    text-align: center;
+    display: -webkit-inline-box;
+    padding: 5px;
+    border-radius: 100px;
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+img {
+    height: 24px;
+}
+
+.remove-parent i {
+    text-align: center;
+    color: #1E1916;
+}
+
+.edit-parent {
+    margin-right: 8px;
+    background-color: #C42C27;
+}
+
+table input {
+    border: 1px solid;
+    padding-left: 8px;
+    background: #1E1916;
+}
+
+.confirm-parent {
+    margin-right: 8px;
+    background: #C42C27;
+}

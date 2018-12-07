@@ -1,0 +1,58 @@
+
+<div *ngIf="carregando" class="progress">
+    <div class="indeterminate"></div>
+  </div>
+
+  <h6 *ngIf="!deputado && carregando">Não há deputados cadastrados</h6>
+
+  <div *ngIf="!carregando">
+    <h6 align="center">Deputados cadastrados</h6>
+
+    <table> 
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Sigla</th>
+          <th>Estado</th>
+          <th>Bandeira</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let deputado of deputados">
+          <td>
+            <span *ngIf="!deputado.editando">{{deputado.nome}}</span>
+            <input *ngIf="deputado.editando" type="text" [(ngModel)]="deputado.nome" name="nome-{{deputado.uid}}">
+          </td>
+          <td>
+          <span *ngIf="!deputado.editando">{{deputado.sigla}}</span>
+              <input *ngIf="deputado.editando" type="text" [(ngModel)]="deputado.sigla" name="posicao-{{deputado.uid}}">
+         </td>
+         <td>
+          <span *ngIf="!deputado.editando">{{deputado.estado}}</span>
+          <input *ngIf="deputado.editando" type="text" [(ngModel)]="deputado.estado" name="estado-{{deputado.uid}}">
+        </td>
+         <td>
+          <span *ngIf="!deputado.editando">{{deputado.bandeira}}</span>
+          <input *ngIf="deputado.editando" type="text" [(ngModel)]="deputado.bandeira" name="bandeira-{{deputado.uid}}">
+        </td>
+        <td *ngIf="!deputado.editando" class="remove-parent">
+            <a class="edit-parent" (click)="editar(deputado)" href="javascript:void(0);">
+              <i class="material-icons">edit</i>
+            </a>
+            <a (click)="remover(deputado.uid)" href="javascript:void(0);">
+              <i class="material-icons">delete</i>
+            </a>
+          </td>
+          <td *ngIf="deputado.editando" class="remove-parent">
+              <a class="confirm-parent" (click)="confirmEdit(deputado)" href="javascript:void(0);">
+                <i class="material-icons">check</i>
+              </a>
+              <a (click)="cancelEdit(deputado)" href="javascript:void(0);">
+                <i class="material-icons">close</i>
+              </a>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
